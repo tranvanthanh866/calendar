@@ -11,6 +11,6 @@ Route::group(['namespace' => 'Package\Calendar\Http\Controllers', 'middleware' =
         Route::post('fullcalendar/update','CalendarController@update');
         Route::post('fullcalendar/delete','CalendarController@destroy');
     });
-    
+
 
 });

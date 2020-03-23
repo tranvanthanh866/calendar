@@ -37,11 +37,11 @@ class CalendarController extends Controller
         WHERE cd.deleted_at IS NULL 
             AND ce.deleted_at IS NULL 
         
-    
     ";
 
     public function __construct()
     {
+
     }
 
     public function index () {
@@ -49,8 +49,8 @@ class CalendarController extends Controller
     }
 
     public function get_data () {
-        $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('2020-03-01');
-        $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('2020-04-12');
+        $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
+        $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
         //$date_start = ''; $date_end = '';
         //return \Response::json([$start, $end]);
         $this->sql .= "
