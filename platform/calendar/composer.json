@@ -1,0 +1,30 @@
+{
+    "name": "package/calendar",
+    "description": "Calendar building",
+    "authors": [
+        {
+            "name": "Thanh Tran",
+            "email": "tranvanthanh866@gmail.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+        "maddhatter/laravel-fullcalendar": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Package\\Calendar\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Package\\Calendar\\Providers\\CalendarProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
