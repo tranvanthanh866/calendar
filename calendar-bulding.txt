@@ -1,0 +1,18 @@
+- login logout
+- register page
+  a) Register page
+	+ ho ten
+	+ email
+	+ password
+  b) Verify Page
+	+ After Register, send a mail to user included link verify acc.
+	+ When User click that account is verify done. and user can login.
+- Edit profile and change password user
+- page demo calendar
+- Page info dev
+
+------
+- Function calendar included
++ Create events for week, day, time, month
++ Edit events (Kéo thả. Edit time, date and info of event. )
++ View Calendar list event, day, week, month

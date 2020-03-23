@@ -19,6 +19,7 @@ class CalendarDate extends Model
             'calendar_event_id',
             'date_start',
             'date_end',
+            'is_all_day',
             'background_color',
             'user_id',
         ];

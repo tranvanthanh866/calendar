@@ -22,11 +22,13 @@ class CreateCalendarEventTable extends Migration {
             //$table->dateTime('start');
             //$table->dateTime('end');
 
-            $table->time('time_start');
-            $table->time('time_end');
+            $table->time('time_start')->nullable();
+            $table->time('time_end')->nullable();
 
 
             $table->string('background_color')->nullable();
+            $table->string('text_color')->nullable();
+            $table->string('border_color')->nullable();
             $table->timestamps();
 
         });
