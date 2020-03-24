@@ -4,7 +4,7 @@ namespace Package\Calendar\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Package\Calendar\Models\ResetsPassword;
+use Package\Calendar\Models\CalendarDate;
 use Package\Calendar\Models\CalendarEvent;
 use Illuminate\Http\Request;
 use Carbon\CarbonPeriod;
@@ -143,7 +143,7 @@ class CalendarController extends Controller
                 'is_all_day' =>  $event['allDay'],
                 'user_id',
             ];
-            $calendarDate = new ResetsPassword();
+            $calendarDate = new CalendarDate();
             $calendarDate->fill($data_fill_date);
             try {
                 $calendarDate->save();
@@ -181,7 +181,7 @@ class CalendarController extends Controller
             'user_id',
         ];
 
-        $calendarDate = ResetsPassword::find($request->calendar_date_id);
+        $calendarDate = CalendarDate::find($request->calendar_date_id);
         $calendarDate->fill($data_fill_date);
         $calendarDate->save();
         return \Response::json(1);
