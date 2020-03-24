@@ -1,4 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/platform/calendar/admin/calendar-control.js": "/platform/calendar/admin/calendar-control.js",
+    "/platform/calendar/admin/calendar-style.css": "/platform/calendar/admin/calendar-style.css"
 }

@@ -1,0 +1,30 @@
+{
+    "name": "package/resets-password",
+    "description": "Resets password",
+    "authors": [
+        {
+            "name": "Thanh Tran",
+            "email": "tranvanthanh866@gmail.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Package\\ResetsPassword\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Package\\ResetsPassword\\Providers\\ResetsPasswordProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}

@@ -16,7 +16,8 @@
         "mockery/mockery": "~1.0",
         "phpunit/phpunit": "~6.0",
         "symfony/thanks": "^1.0",
-        "package/calendar": "*@dev"
+        "package/calendar": "*@dev",
+        "package/resets-password": "*@dev"
     },
     "autoload": {
         "classmap": [
@@ -54,6 +55,10 @@
         {
             "type": "path",
             "url": "./platform/calendar"
+        },
+        {
+            "type": "path",
+            "url": "./platform/resets-password"
         }
     ],
     "config": {
