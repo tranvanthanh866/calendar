@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5adfcdee85965acd64d640571e2283e",
+    "content-hash": "56ab04294fe40b2cefb248b4b15fecc4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -3191,36 +3191,6 @@
             "description": "Calendar building"
         },
         {
-            "name": "package/resets-password",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "./platform/resets-password",
-                "reference": "586adc80069f3f0082b7aca5c0928765c8b557e3"
-            },
-            "type": "project",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Package\\ResetsPassword\\Providers\\ResetsPasswordProvider"
-                    ],
-                    "aliases": []
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Package\\ResetsPassword\\": "src"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Thanh Tran",
-                    "email": "tranvanthanh866@gmail.com"
-                }
-            ],
-            "description": "Resets password"
-        },
-        {
             "name": "phar-io/manifest",
             "version": "1.0.1",
             "source": {
@@ -4623,8 +4593,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "package/calendar": 20,
-        "package/resets-password": 20
+        "package/calendar": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

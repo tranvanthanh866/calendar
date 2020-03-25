@@ -92,6 +92,7 @@ class CalendarController extends Controller
                 $tmp['allDay'] = $request['allDay'];
                 $tmp['background_color'] = $request['background_color'];
                 $tmp['text_color'] = $request['text_color'];
+                $tmp['_allDay'] = $request['_allDay'];
                 $data[] = $tmp;
             }
         } else {
@@ -102,6 +103,7 @@ class CalendarController extends Controller
             $tmp['allDay'] = $request['allDay'];
             $tmp['background_color'] = $request['background_color'];
             $tmp['text_color'] = $request['text_color'];
+            $tmp['_allDay'] = $request['_allDay'];
             $data[] = $tmp;
         }
 
@@ -136,11 +138,13 @@ class CalendarController extends Controller
                 \Log::info('insert fail: '. $e->getMessage());
                 return \Response::json(0);
             }
+
+
             $data_fill_date = [
                 'calendar_event_id' => $calendarModel->calendar_event_id,
                 'date_start' => $event['date_start'],
                 'date_end' => $event['date_end'],
-                'is_all_day' =>  $event['allDay'],
+                'is_all_day' =>  $event['_allDay'],
                 'user_id',
             ];
             $calendarDate = new CalendarDate();
