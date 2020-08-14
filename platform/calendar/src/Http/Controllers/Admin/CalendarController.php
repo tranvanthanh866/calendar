@@ -38,7 +38,9 @@ class CalendarController extends Controller
                 END as end
             
             , COALESCE(ce.background_color, cd.background_color) as backgroundColor
+            , ce.background_color_name
             , ce.text_color as textColor
+            , ce.text_color_name
             
         FROM calendar_date cd
         INNER JOIN calendar_event ce 
@@ -91,8 +93,12 @@ class CalendarController extends Controller
                 $tmp['time_end'] = $request['time_end'];
                 $tmp['allDay'] = $request['allDay'];
                 $tmp['background_color'] = $request['background_color'];
+                $tmp['background_color_name'] = $request['name_background_color'];
                 $tmp['text_color'] = $request['text_color'];
+                $tmp['text_color_name'] = $request['name_text_color'];
                 $tmp['_allDay'] = $request['_allDay'];
+
+
                 $data[] = $tmp;
             }
         } else {
@@ -102,8 +108,11 @@ class CalendarController extends Controller
             $tmp['date_end'] = $request['date_end'];
             $tmp['allDay'] = $request['allDay'];
             $tmp['background_color'] = $request['background_color'];
+            $tmp['background_color_name'] = $request['name_background_color'];
             $tmp['text_color'] = $request['text_color'];
+            $tmp['text_color_name'] = $request['name_text_color'];
             $tmp['_allDay'] = $request['_allDay'];
+
             $data[] = $tmp;
         }
 
@@ -114,7 +123,8 @@ class CalendarController extends Controller
 
     public function store(Request $request)
     {
-        $data = $this->generateDateRange($request->all());
+        $data_rq = $request->all();
+        $data = $this->generateDateRange($data_rq);
         \DB::beginTransaction();
         foreach ($data as $event) {
             $data_fill_event = [
@@ -124,21 +134,25 @@ class CalendarController extends Controller
                 'time_end' => isset($event['time_end'])?$event['time_end']:null,
 
                 'background_color'=> $event['background_color'],
+                'background_color_name'=> $event['background_color_name'],
                 'text_color'=> $event['text_color'],
+                'text_color_name'=> $event['text_color_name'],
 
             ];
 
-            $calendarModel = new CalendarEvent();
-            $calendarModel->fill($data_fill_event);
-
             try {
+                if (isset($data_rq['calendar_event_id'])) {
+                    $calendarModel = CalendarEvent::find($data_rq['calendar_event_id']);
+                } else {
+                    $calendarModel = new CalendarEvent();
+                }
+                $calendarModel->fill($data_fill_event);
                 $calendarModel->save();
             } catch (\Exception $e) {
                 \DB::rollBack();
                 \Log::info('insert fail: '. $e->getMessage());
                 return \Response::json(0);
             }
-
 
             $data_fill_date = [
                 'calendar_event_id' => $calendarModel->calendar_event_id,
@@ -147,9 +161,14 @@ class CalendarController extends Controller
                 'is_all_day' =>  $event['_allDay'],
                 'user_id',
             ];
-            $calendarDate = new CalendarDate();
-            $calendarDate->fill($data_fill_date);
+
             try {
+                if (isset($data_rq['calendar_date_id'])) {
+                    $calendarDate = CalendarDate::find($data_rq['calendar_date_id']);
+                } else {
+                    $calendarDate = new CalendarDate();
+                }
+                $calendarDate->fill($data_fill_date);
                 $calendarDate->save();
             } catch (\Exception $e) {
                 \DB::rollBack();

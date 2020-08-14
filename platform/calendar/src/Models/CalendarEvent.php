@@ -23,7 +23,9 @@ class CalendarEvent extends Model implements Calendar
             'time_start',
             'time_end',
             'background_color',
+            'background_color_name',
             'text_color',
+            'text_color_name',
         ];
         parent::__construct($attributes);
     }

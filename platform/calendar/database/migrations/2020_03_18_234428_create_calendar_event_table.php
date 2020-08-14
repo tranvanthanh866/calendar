@@ -27,7 +27,9 @@ class CreateCalendarEventTable extends Migration {
 
 
             $table->string('background_color')->nullable();
+            $table->string('background_color_name')->nullable();
             $table->string('text_color')->nullable();
+            $table->string('text_color_name')->nullable();
             $table->string('border_color')->nullable();
             $table->timestamps();
 

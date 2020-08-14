@@ -9,12 +9,12 @@
     <!-- Bootstrap core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
-    <link href='/platform/calendar/admin/fullcalendar/packages/core/main.css' rel='stylesheet'/>
-    <link href='/platform/calendar/admin/fullcalendar/packages/daygrid/main.css' rel='stylesheet'/>
-    <link href='/platform/calendar/admin/fullcalendar/packages/timegrid/main.css' rel='stylesheet'/>
-    <link href='/platform/calendar/admin/fullcalendar/packages/list/main.css' rel='stylesheet'/>
-    <link href='/platform/calendar/admin/fullcalendar/packages-premium/timeline/main.css' rel='stylesheet'/>
-    <link href='/platform/calendar/admin/fullcalendar/packages-premium/resource-timeline/main.css' rel='stylesheet'/>
+    <link href='{{asset('platform/calendar/admin/fullcalendar/packages/core/main.css')}}' rel='stylesheet'/>
+    <link href='{{asset('platform/calendar/admin/fullcalendar/packages/daygrid/main.css')}}' rel='stylesheet'/>
+    <link href='{{asset('platform/calendar/admin/fullcalendar/packages/timegrid/main.css')}}' rel='stylesheet'/>
+    <link href='{{asset('platform/calendar/admin/fullcalendar/packages/list/main.css')}}' rel='stylesheet'/>
+    <link href='{{asset('platform/calendar/admin/fullcalendar/packages-premium/timeline/main.css')}}' rel='stylesheet'/>
+    <link href='{{asset('platform/calendar/admin/fullcalendar/packages-premium/resource-timeline/main.css')}}' rel='stylesheet'/>
 
     <link rel="stylesheet" href="{{asset('platform/calendar/lib/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('platform/calendar/admin/sumoselect.min.css')}}">
@@ -76,7 +76,6 @@
                             <input id="date_end" name="date_end" class="form-control date end" placeholder="Date End" v-bind:value="from_data.date_end"
                                    type="text">
                         </div>
-
 
                     </div>
                     <div class="form-group input-group">
@@ -141,9 +140,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group input-group">
-
-
+                    <div class="form-group hidden">
+                        <input type="hidden" name="calendar_event_id" id="calendar_event_id" v-bind:value="from_data.calendar_event_id">
+                        <input type="hidden" name="calendar_date_id" id="calendar_date_id" v-bind:value="from_data.calendar_date_id">
                     </div>
 
                 </form>
@@ -151,7 +150,9 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary save-time">Save changes</button>
+                <button type="button" v-bind:class="'btn btn-primary ' + from_data.class_btn_action" v-on:click="pushData" >
+                    @{{from_data.name_btn_action}}
+                </button>
             </div>
         </div>
     </div>
@@ -160,11 +161,11 @@
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 {{--<script src="{{asset('/platform/calendar/admin/fullcalendar/packages/moment/main.min.js')}}"></script>--}}
-<script src='{{asset('/platform/calendar/admin/fullcalendar/packages/core/main.js')}}'></script>
-<script src='{{asset('/platform/calendar/admin/fullcalendar/packages/interaction/main.js')}}'></script>
-<script src='{{asset('/platform/calendar/admin/fullcalendar/packages/daygrid/main.js')}}'></script>
-<script src='{{asset('/platform/calendar/admin/fullcalendar/packages/timegrid/main.js')}}'></script>
-<script src='{{asset('/platform/calendar/admin/fullcalendar/packages/list/main.js')}}'></script>
+<script src='{{asset('platform/calendar/admin/fullcalendar/packages/core/main.js')}}'></script>
+<script src='{{asset('platform/calendar/admin/fullcalendar/packages/interaction/main.js')}}'></script>
+<script src='{{asset('platform/calendar/admin/fullcalendar/packages/daygrid/main.js')}}'></script>
+<script src='{{asset('platform/calendar/admin/fullcalendar/packages/timegrid/main.js')}}'></script>
+<script src='{{asset('platform/calendar/admin/fullcalendar/packages/list/main.js')}}'></script>
 
 <script src="{{asset('platform/calendar/admin/notify.min.js')}}"></script>
 <script src="{{asset('platform/calendar/lib/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js')}}"></script>
@@ -182,6 +183,6 @@
     });
 
 </script>
-<script src="{{asset('platform/calendar/admin/calendar-control.js')}}"></script>
+<script src="{{asset('platform/calendar/admin/calendar-control.js')}}?ver=1.0.3"></script>
 </body>
 </html>

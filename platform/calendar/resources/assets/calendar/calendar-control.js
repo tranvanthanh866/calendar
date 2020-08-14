@@ -1,146 +1,174 @@
-let date = moment().format('YYYY-MM-DD');
-let time = moment().format('HH:mm:ss');
-Vue.config.devtools = true;
-let form_data_default = {
-    title: '',
-    description: '',
-    date_start: '',
-    time_start: '',
-    date_end: '',
-    time_end: '',
-    allDay: false,
-    _allDay: 0,
-    background_group: [
-        {
-            _text_display: 'Black',
-            hex_color_code: '#212529',
-            class: 'Black',
-        },
-        {
-            _text_display: 'White',
-            hex_color_code: '#fff',
-            class: 'white',
-        },
-        {
-            _text_display: 'Blue',
-            hex_color_code: '#3788d8',
-            class: 'Blue',
-        },
-        {
-            _text_display: 'Green',
-            hex_color_code: '#008000',
-            class: 'green',
-        },
-        {
-            _text_display: 'Red',
-            hex_color_code: '#ff0000',
-            class: 'red',
-        },
-        {
-            _text_display: 'Yellow',
-            hex_color_code: '#ffff00',
-            class: 'yellow',
-        },
-        {
-            _text_display: 'Brown',
-            hex_color_code: '#a52a2a',
-            class: 'brown',
-        },
-        {
-            _text_display: 'Orange',
-            hex_color_code: '#ffa500',
-            class: 'orange',
-        },
-        {
-            _text_display: 'Pink',
-            hex_color_code: '#ffc0cb',
-            class: 'pink',
-        },
-        {
-            _text_display: 'Silver',
-            hex_color_code: '#c0c0c0',
-            class: 'silver',
-        },
-        {
-            _text_display: 'TEAL',
-            hex_color_code: '#008080',
-            class: 'TEAL',
-        },
-        {
-            _text_display: 'OLIVE',
-            hex_color_code: '#000080',
-            class: 'OLIVE',
-        },
-        {
-            _text_display: 'LIME',
-            hex_color_code: '#00FF00',
-            class: 'LIME',
-        },
-    ],
-    background_color: "#3788d8",
-    name_background_color: "Blue",
-    text_color: "#212529",
-    name_text_color: "Black",
-    repeat_weeks: [
-        {
-            value: 1,
-            name: "Every Mondays"
-        },
-        {
-            value: 2,
-            name: "Every Tuesdays"
-        },
-        {
-            value: 3,
-            name: "Every Wednesdays"
-        },
-        {
-            value: 4,
-            name: "Every Thursdays"
-        },
-        {
-            value: 5,
-            name: "Every Fridays"
-        },
-        {
-            value: 6,
-            name: "Every Saturdays"
-        },
-        {
-            value: 0,
-            name: "Every Sundays"
-        },
-    ],
-    repeat: []
-};
-
-let modal_vue = new Vue({
-    el: '#form-time',
-    data: {
-        from_data: form_data_default,
-    },
-    methods: {
-        setDateTimeDefault() {
-            let _this = this;
-            _this.from_data.title = '';
-            _this.from_data.description = '';
-            _this.from_data.background_color = '#3788d8';
-            _this.from_data.name_background_color = 'Blue';
-            _this.from_data.name_text_color = 'Black';
-            _this.from_data.text_color = '#212529';
-            _this.from_data.repeat = [];
-        },
-
-        checkData() {
-            let _this = this;
-            console.log(1);
-            console.log(_this.repeat);
-        }
-    },
-});
 
 
 $(function () {
+    let date = moment().format('YYYY-MM-DD');
+    let time = moment().format('HH:mm:ss');
+    Vue.config.devtools = true;
+    let form_data_default = {
+        title: '',
+        description: '',
+        date_start: '',
+        time_start: '',
+        date_end: '',
+        time_end: '',
+        allDay: false,
+        _allDay: 0,
+        background_group: [
+            {
+                _text_display: 'Black',
+                hex_color_code: '#212529',
+                class: 'Black',
+            },
+            {
+                _text_display: 'White',
+                hex_color_code: '#fff',
+                class: 'white',
+            },
+            {
+                _text_display: 'Blue',
+                hex_color_code: '#3788d8',
+                class: 'Blue',
+            },
+            {
+                _text_display: 'Green',
+                hex_color_code: '#008000',
+                class: 'green',
+            },
+            {
+                _text_display: 'Red',
+                hex_color_code: '#ff0000',
+                class: 'red',
+            },
+            {
+                _text_display: 'Yellow',
+                hex_color_code: '#ffff00',
+                class: 'yellow',
+            },
+            {
+                _text_display: 'Brown',
+                hex_color_code: '#a52a2a',
+                class: 'brown',
+            },
+            {
+                _text_display: 'Orange',
+                hex_color_code: '#ffa500',
+                class: 'orange',
+            },
+            {
+                _text_display: 'Pink',
+                hex_color_code: '#ffc0cb',
+                class: 'pink',
+            },
+            {
+                _text_display: 'Silver',
+                hex_color_code: '#c0c0c0',
+                class: 'silver',
+            },
+            {
+                _text_display: 'TEAL',
+                hex_color_code: '#008080',
+                class: 'TEAL',
+            },
+            {
+                _text_display: 'OLIVE',
+                hex_color_code: '#000080',
+                class: 'OLIVE',
+            },
+            {
+                _text_display: 'LIME',
+                hex_color_code: '#00FF00',
+                class: 'LIME',
+            },
+        ],
+        background_color: "#3788d8",
+        name_background_color: "Blue",
+        text_color: "#212529",
+        name_text_color: "Black",
+        repeat_weeks: [
+            {
+                value: 1,
+                name: "Every Mondays"
+            },
+            {
+                value: 2,
+                name: "Every Tuesdays"
+            },
+            {
+                value: 3,
+                name: "Every Wednesdays"
+            },
+            {
+                value: 4,
+                name: "Every Thursdays"
+            },
+            {
+                value: 5,
+                name: "Every Fridays"
+            },
+            {
+                value: 6,
+                name: "Every Saturdays"
+            },
+            {
+                value: 0,
+                name: "Every Sundays"
+            },
+        ],
+        repeat: [],
+        calendar_event_id: '',
+        calendar_date_id: '',
+        name_btn_action : "Save changes",
+        class_btn_action: "save-time",
+
+    };
+
+    let modal_vue = new Vue({
+        el: '#form-time',
+        data: {
+            from_data: form_data_default,
+        },
+        methods: {
+            setDateTimeDefault() {
+                let _this = this;
+                _this.from_data = _this.dataDefault;
+            },
+
+            dataDefault () {
+                return {
+                    title: '',
+                    description: '',
+                    background_color: '#3788d8',
+                    name_background_color: 'Blue',
+                    name_text_color: 'Black',
+                    text_color: '#212529',
+                    repeat: [],
+                    calendar_event_id: '',
+                    calendar_date_id: '',
+                }
+            },
+
+            async pushData (e) {
+                let _this = this;
+                let ele_btn = $(e.target);
+
+                let data = _this.from_data;
+                await save_data(data);
+                modal_time.modal('hide');
+                if(ele_btn.hasClass('save-time') === true) {
+
+                } else {
+
+                }
+            },
+            checkData() {
+                let _this = this;
+                console.log(1);
+                console.log(_this.repeat);
+            }
+        },
+    });
+
+
     let year = (new Date).getFullYear();
     let modal_time = $('#form-time');
     let form_time = $('#form-date-time');
@@ -217,7 +245,6 @@ $(function () {
             left: 'prev,next,today',
             center: 'title',
             right: 'listWeek,timeGridDay,timeGridWeek,dayGridMonth'
-            //right: 'resourceTimelineDay,resourceTimelineThreeDays,timeGridWeek,dayGridMonth,listWeek'
         },
         eventLimit: true,
         defaultView: 'timeGridWeek',
@@ -231,20 +258,9 @@ $(function () {
         },*/
 
         select: async function (info) {
-            //alert('selected ' + info.startStr + ' to ' + info.endStr);
             if (check_date_event(info)) {
-                let date_start = moment(info.start).format('YYYY-MM-DD');
-                let time_start = moment(info.start).format("HH:mm:ss");
-                let date_end = moment(info.end).format("YYYY-MM-DD");
-                let time_end = moment(info.end).format("HH:mm:ss");
-                //let today = moment().format('YYYY-MM-DD');
 
-                modal_vue.$data.from_data.date_start = date_start;
-                modal_vue.$data.from_data.date_end = date_end;
-                modal_vue.$data.from_data.time_start = time_start;
-                modal_vue.$data.from_data.time_end = time_end;
-                modal_vue.$data.from_data.allDay = info.allDay;
-
+                setDataEvent(info);
                 modal_time.modal('show');
             } else {
                 displayErrorMessage('Past day can not add events');
@@ -282,7 +298,10 @@ $(function () {
 
         eventClick: async function (info) {
             if (check_date_event(info.event)) {
-                $('#ex1').modal();
+                setDataEvent(info.event);
+                modal_vue.$data.from_data.name_btn_action = "Update";
+                modal_vue.$data.from_data.class_btn_action = "btn-update";
+                modal_time.modal('show');
 
                 /*let deleteMsg = confirm("Do you really want to delete?");
                 if (deleteMsg) {
@@ -342,8 +361,7 @@ $(function () {
                 'calendar_date_id': data.calendar_date_id,
                 'allDay': info.event.allDay ? 1 : 0
         };
-        console.log(_data);
-        console.log(info.event.allDay);
+
         $.ajax({
             url: SITEURL + '/fullcalendar/update',
             data: {
@@ -369,6 +387,7 @@ $(function () {
             data: data,
             type: "POST",
             success: function (response) {
+                calendar.refetchEvents();
                 displayMessage("Added Successfully");
             }
         });
@@ -397,13 +416,41 @@ $(function () {
         return date_start >= today;
     }
 
-    $('.save-time').click(async function () {
-        let data = modal_vue.$data.from_data;
-        await save_data(data);
-        calendar.refetchEvents();
+    modal_time.on('hidden.bs.modal', function () {
+        dataDefault();
+        $('.optWrapper ul li').removeClass('selected');
+        $('#repeat-date').val([]);
+        $('.SumoSelect p.CaptionCont').attr('title', 'Repeat event')
+            .find('span').addClass('placeholder').text('Repeat event');
     });
 
-    modal_time.on('hidden.bs.modal', function () {
+    let setDataEvent = (info) => {
+        let date_start = moment(info.start).format('YYYY-MM-DD');
+        let time_start = moment(info.start).format("HH:mm:ss");
+        let date_end = moment(info.end).format("YYYY-MM-DD");
+        let time_end = moment(info.end).format("HH:mm:ss");
+        //let today = moment().format('YYYY-MM-DD');
+        modal_vue.$data.from_data.date_start = date_start;
+        modal_vue.$data.from_data.date_end = date_end;
+        modal_vue.$data.from_data.time_start = time_start;
+        modal_vue.$data.from_data.time_end = time_end;
+        modal_vue.$data.from_data.allDay = info.allDay;
+
+        if(typeof info._def !== "undefined") {
+            modal_vue.$data.from_data.title = info._def.title;
+            modal_vue.$data.from_data.description = info._def.extendedProps.description;
+            modal_vue.$data.from_data.calendar_date_id = info._def.extendedProps.calendar_date_id;
+            modal_vue.$data.from_data.calendar_event_id = info._def.extendedProps.calendar_event_id;
+            modal_vue.$data.from_data.background_color = info.backgroundColor;
+            modal_vue.$data.from_data.text_color = info.textColor;
+            modal_vue.$data.from_data.background_color = info.backgroundColor;
+            modal_vue.$data.from_data.text_color = info.textColor;
+            modal_vue.$data.from_data.name_background_color = info._def.extendedProps.background_color_name;
+            modal_vue.$data.from_data.name_text_color = info._def.extendedProps.text_color_name;
+        }
+    };
+
+    let dataDefault = () => {
         modal_vue.$data.from_data.title = '';
         modal_vue.$data.from_data.description = '';
         modal_vue.$data.from_data.background_color = '#3788d8';
@@ -411,11 +458,11 @@ $(function () {
         modal_vue.$data.from_data.name_text_color = 'Black';
         modal_vue.$data.from_data.text_color = '#212529';
         modal_vue.$data.from_data.repeat = [];
-        $('.optWrapper ul li').removeClass('selected');
-        $('#repeat-date').val([]);
-        $('.SumoSelect p.CaptionCont').attr('title', 'Repeat event')
-            .find('span').addClass('placeholder').text('Repeat event');
-    });
+        modal_vue.$data.from_data.calendar_event_id = '';
+        modal_vue.$data.from_data.calendar_date_id = '';
+        modal_vue.$data.from_data.name_btn_action = 'Save changes';
+        modal_vue.$data.from_data.class_btn_action = "save-time"
+    };
 
     modal_time.on('shown.bs.modal', function () {
         let check = modal_time.find('#allDay').is(":checked");
